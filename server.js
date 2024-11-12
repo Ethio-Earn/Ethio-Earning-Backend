@@ -15,7 +15,9 @@ import paymentCallbackRouteForETB from './routes/paymentCallbackForETB.route.js'
 import paymentCallbackRouteForUSD from './routes/paymentCallbackForUSD.route.js';
 import purchasedPackageRoutes from './routes/purchasedPackageRoutes.js';
 import transactionRoutes from './routes/transactionRoutes.js';
-  
+import roleRoutes from './routes/role.routes.js'
+import employeeRoutes from './routes/employee.routes.js'
+
 const app = express();
 
 dotenv.config()
@@ -63,6 +65,12 @@ app.use('/api/account',depositeandwithdraw);
 
 // Use the payment callback route
 app.use('/payment', paymentCallbackRouteForETB);
+
+// role routes
+app.use("/roles", roleRoutes)
+
+// employee routes
+app.use("/employees", employeeRoutes)
 
 connectDB()  
 
